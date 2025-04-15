@@ -22,10 +22,10 @@ public class ChangeTaskStatusCommand implements Runnable {
         @CommandLine.Option(names = {"--todo", "-td"}, required = false)
         private boolean isTodo;
 
-        @CommandLine.Option(names = {"--completed", "-cmp"}, required = false)
-        private boolean isCompleted;
+        @CommandLine.Option(names = {"--done", "-d"}, required = false)
+        private boolean isDone;
 
-        @CommandLine.Option(names = {"--inProgress", "-prg"}, required = false)
+        @CommandLine.Option(names = {"--in-progress", "-prg"}, required = false)
         private boolean isInProgress;
     }
 
@@ -36,7 +36,7 @@ public class ChangeTaskStatusCommand implements Runnable {
         taskList.remove(taskToUpdate);
         if(statusOptions.isTodo)
             taskToUpdate.setTaskStatus(TaskStatus.TODO);
-        else if(statusOptions.isCompleted)
+        else if(statusOptions.isDone)
             taskToUpdate.setTaskStatus(TaskStatus.DONE);
         else if(statusOptions.isInProgress)
             taskToUpdate.setTaskStatus(TaskStatus.IN_PROGRESS);
